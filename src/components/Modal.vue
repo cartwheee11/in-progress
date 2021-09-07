@@ -1,8 +1,8 @@
 <template @click="click">
-  <div @click="click" class="container" :style="containerStyle">
-    <div class="content">
+  <div ref="dom" @click="click" class="container modal" :style="containerStyle">
+    
       <slot />
-    </div>
+
   </div>
 </template>
 
@@ -51,6 +51,10 @@ export default {
 		},
   },
 
+  mounted() {
+    this.$emit('ref', this.$refs.dom)
+  },
+
   methods: {
     click() {
 
@@ -66,5 +70,6 @@ export default {
     border-radius: 10px;
     background: black;;
     overflow:  hidden;
+    z-index: 0;
   }
 </style>

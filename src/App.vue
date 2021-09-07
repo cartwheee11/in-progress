@@ -1,59 +1,78 @@
 <template>
-  <button @click="clickHandler">Click me :)</button>
-  <Article 
-    v-for="(id) in openedArticles"
-    :key="id"
-    @click="windowClick(id)"
-    :path="openedWindows[id].path"
-    :defaultX="openedWindows[id].defaultX"
-  />
+  <button ref="button" @click="clickHandler">Click me :)</button>
+  
+  <div class="desktop">
+    <Folder
+      @open="open"
+      :path="'home'"
+    />
+  </div>
 
-  <windows-manager/>
+  <Window 
+    :ref="setWindowRef"
+    v-for="(currentWindow) in windows"
+    :key="currentWindow"
+    @mousedown="onWindowMouseDown"
+    v-bind="currentWindow"
+  >
+    <Article 
+      v-if="currentWindow.type == 'article'"
+      :path="currentWindow.path"
+    />
 
-
+    <Folder
+      @open="open"
+      v-if="currentWindow.type == 'folder'"
+      :path="currentWindow.path"
+    />
+  </Window>
+  
+  <!-- <Window> -->
+    <!-- <Folder path="home"/> -->
+  <!-- </Window> -->
 
 </template>
 
 <script>
 
 import Article from "./components/Article.vue";
-import WindowsManager from "./components/WindowsManager.vue";
-// import Modal from "./components/Modal.vue
-import Vue from 'vue'
+import Window from "./components/Window.vue";
+// import Modal from './components/Modal.vue';
+import Folder from "./components/Folder.vue";
+
 export default {
   name: "App",
 
   components: {
-    // Window,
+    Window,
     Article,
-    WindowsManager
+    Folder 
   },
 
   data() {
     return {
+      windowRefs: [],
       search: window.location.search.replace("?", "").split("&"),
       mouseX: 0,
       mouseY: 0,
-      openedModals: [
-        {
-          content: 'Hello, World!',
-          x: 100,
-          y: 100,
-          width: 200,
-          height: 200
-        }
-      ],
-      openedWindows: [
+      windows: [
         // {
         //   type: 'article',
-        //   path: 'home/articles/second.html',
-        //   defaultX: 100
+        //   path: 'home/articles/second.doc'
         // },
 
         // {
         //   type: 'article',
-        //   path: 'home/articles/first.html'
+        //   path: 'home/articles/first.doc',
+        //   defaultX: 100,
+        //   defaultY: 300,
+        //   title: 'random title'
         // },
+
+        // {
+        //   type: 'folder',
+        //   path: 'home/articles'
+        // }
       ],
 
 
@@ -61,60 +80,58 @@ export default {
   },
 
   computed: {
-    openedArticles() {
-      let res = [];
-      this.openedWindows.forEach((elem, id) => {
-        if(elem.type === 'article') {
-          res.push(id);
-        }
-      })
-
-      console.log(res)
-      return res;
-    },
+    
   },
 
   methods: {
-    clickHandler() {
-      var ComponentClass = Vue.extend(Window);
-      var instance = new ComponentClass();
-      console.log(instance)
+    onWindowMouseDown(event) {
+      this.windowToTop(event.srcElement.closest('.modal'))
     },
 
-    
+    windowToTop(currentWindow){
+      let maxZIndex = 0;
 
+      let modals = document.querySelectorAll('.modal');
+      [].forEach.call(modals, (elem) => {
+        let currentZIndex = window.getComputedStyle(elem).zIndex;
+        if(currentZIndex > maxZIndex) {
+          maxZIndex = currentZIndex;
+        }
+      });
+      currentWindow.style.zIndex = parseInt(maxZIndex) + 1
+    },
 
-    windowClick(id) {
-      // this.openedWindows.push(elem)
-      let elem = this.openedWindows[id];
-      console.log(id);
-      console.log(elem)
-      // // console.log(this.openedWindows)
-      // this.openedWindows.push(elem)
-      // delete this.openedWindows[1]
-      // console.log(id)
-      // // this.openedWindows.splice(id - 1, 1)
-      this.openedWindows = this.openedWindows.filter((elem, id) => id != 0);
-      // console.log(this.openedWindows)
-
-
+    open(event) {
+      // console.log(event)
+      this.windows.push(event)
+      console.log(event)
+      this.$nextTick(() => {
+        this.lastWindowOnTop()
+      });
       
-      // console.log(elem)
-      // this.openedWindows = this.openedWindows.filter(el => JSON.stringify(el) != JSON.stringify(elem));
-      // console.log(this.openedWindows)
-      // // console.log(this.openedWindows)
+    },
 
+    addWindow({opts}) {
+      this.windows.push(opts)
+      setTimeout(() => {
+        this.lastWindowOnTop()
+      }, 1000)
+      
 
+    },
+
+    lastWindowOnTop() {
+        let modals = document.querySelectorAll('.modal');
+        this.windowToTop(modals[modals.length - 1]);      
+    },
+
+    setWindowRef(ref) {
+      this.windowRefs.push(ref)
     }
-  }
-  ,
+  },
 
   mounted() {
-
-    document.onmousemove = (event) => {
-      this.mouseX = event.pageX;
-      this.mouseY = event.pageY;
-    }
+    
   }
 };
 </script>

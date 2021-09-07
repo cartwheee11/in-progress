@@ -1,5 +1,5 @@
 <template>
-  <modal v-if="isOpened" :x=x :y=y :height=height :width=width >
+  <modal @ref="onRef" v-if="isOpened" :x=x :y=y :height=height :width=width >
     <div class="container" >
 
       <div @mousedown="onMouseDown" class="top-bar">
@@ -10,7 +10,7 @@
         </div>
 
         <div class="controls" ref="controlsDOM">
-          <button>—</button> <button @click="closeWindow">x</button> 
+          <button>minimize</button> <button @click="closeWindow">close</button> 
         </div>
 
         <div class="clear"></div>
@@ -104,6 +104,10 @@ export default {
       this.isOpened = false;
     },
 
+    onRef(){
+      // this.$emit("ref", ref);
+    },
+
     onMouseDown(event) {
       this.whereClickWas = {
         x: event.clientX - this.x,
@@ -125,12 +129,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 
-  /*.container {
-    width: 100%;
-    height: 100%;
-  }*/
+
 
   .top-bar {
     border-bottom: 1px solid white;
@@ -142,13 +143,21 @@ export default {
   .controls {
     float: right;
     padding: 5px 20px;
-    /* border: red 1px solid ; */
   }
 
   .title-container {
     display: block;
     float: left;
-    padding: 0 20px;
+    padding: 5px 20px;
+  }
+
+  .title {
+    padding: 5px 10px
+  }
+
+  .title p{
+    padding: 0;
+    margin: 0
   }
   
   .container {
@@ -159,8 +168,13 @@ export default {
 
   .content-container {
     padding: 20px;
+    padding-top: 100px;
     overflow-y: scroll;
     height: 100%;
+  }
+
+  .content {
+    /*padding-bottom:  20px;*/
   }
     
 

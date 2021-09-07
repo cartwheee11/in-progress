@@ -1,20 +1,12 @@
 <template>
-	<window>
 		<!-- <template v-slot="innerHtml"></template> -->
 		<div class="content" v-html="innerHtml"></div>
-	</window>
 </template>
 
 <script>
-	import Window from './Window'
-	let axios = require('axios')
-	// let fetch = require('node-fetch')
+	let axios = require('axios');
 
 	export default {
-		components: {
-			Window
-		},
-
 		props: {
 			path: {
 				type: String,
@@ -29,6 +21,14 @@
 			}
 		}, 
 
+		methods: {
+			onRef(ref) {
+				// console.log('событие произошло')
+				this.$emit("lolref", ref);
+				// console.log(ref)
+			}
+		},
+
 		async mounted () {
 			let res = await axios(this.path)
 			this.innerHtml = await res.data;
@@ -37,14 +37,13 @@
 	}
 </script>
 
-<style>
-
-
+<style scoped>
 	.content {
 		display: block;
 		height: 100%;
-		/*border:  1px red solid;*/
-		/*position: absolute;*/
-		/*width: 100%;*/
+		padding-bottom:  20px;
 	}
+
+	
 </style>
+
