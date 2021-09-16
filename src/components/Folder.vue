@@ -65,7 +65,7 @@ export default {
         type = 'folder'
       }
 
-      let img = null
+      let img = 'img/defaultWebApp.png'
       if(type == 'article') {
         img = 'img/document.png'
       } else if(type == 'application') {
