@@ -38,28 +38,18 @@ export default {
 
   methods: {
     iconClick(title, key) {
-      // console.log(title, key)
       let event = { 
         title, 
         type: this.content[key].type, 
         path: this.content[key].path
       }
       this.$emit('open', event)
-      console.log(event)
     }
   },
 
   async mounted() {
-
-    
-    // let folderContent = require('.' + this.path + '/dirinfo.json')
-    // let folderContent = await axios(this.path + '')
-
     let folderContent = (await axios(this.path + '/dirinfo.json')).data.names;
-    console.log(folderContent)
 
-    console.log(folderContent)
-    console.log(folderContent);
     await folderContent.forEach(elem => {
       let title = elem
       let extension = title.split('.')[1]
@@ -91,9 +81,6 @@ export default {
         path: this.path + '/' + title
       })
     })
-
-    // console.log(await folderContent.data);
-    // this.content = await folderContent.data.map(elem => ({ name: elem }))
   }
 
 }

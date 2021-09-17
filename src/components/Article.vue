@@ -23,9 +23,7 @@
 
 		methods: {
 			onRef(ref) {
-				// console.log('событие произошло')
 				this.$emit("lolref", ref);
-				// console.log(ref)
 			}
 		},
 

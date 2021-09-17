@@ -1,21 +1,18 @@
 <template>
   <button ref="button" @click="clickHandler">Click me :)</button>
-  
+
   <div class="desktop">
-    <Folder
-      @open="open"
-      :path="'/home'"
-    />
+    <Folder @open="open" :path="'/home'" />
   </div>
 
-  <Window 
+  <Window
     :ref="setWindowRef"
-    v-for="(currentWindow) in windows"
+    v-for="currentWindow in windows"
     :key="currentWindow"
     @mousedown="onWindowMouseDown"
     v-bind="currentWindow"
   >
-    <Article 
+    <Article
       v-if="currentWindow.type == 'article'"
       :path="currentWindow.path"
     />
@@ -26,15 +23,9 @@
       :path="currentWindow.path"
     />
   </Window>
-  
-  <!-- <Window> -->
-    <!-- <Folder path="home"/> -->
-  <!-- </Window> -->
-
 </template>
 
 <script>
-
 import Article from "./components/Article.vue";
 import Window from "./components/Window.vue";
 // import Modal from './components/Modal.vue';
@@ -46,7 +37,7 @@ export default {
   components: {
     Window,
     Article,
-    Folder 
+    Folder,
   },
 
   data() {
@@ -55,84 +46,58 @@ export default {
       search: window.location.search.replace("?", "").split("&"),
       mouseX: 0,
       mouseY: 0,
-      windows: [
-        // {
-        //   type: 'article',
-        //   path: 'home/articles/second.doc'
-        // },
-
-        // {
-        //   type: 'article',
-        //   path: 'home/articles/first.doc',
-        //   defaultX: 100,
-        //   defaultY: 300,
-        //   title: 'random title'
-        // },
-
-        // {
-        //   type: 'folder',
-        //   path: 'home/articles'
-        // }
-      ],
-
-
+      windows: [],
     };
   },
 
-  computed: {
-    
-  },
+  computed: {},
 
   methods: {
     onWindowMouseDown(event) {
-      this.windowToTop(event.srcElement.closest('.modal'))
+      this.windowToTop(event.srcElement.closest(".modal"));
     },
 
-    windowToTop(currentWindow){
+    windowToTop(currentWindow) {
       let maxZIndex = 0;
 
-      let modals = document.querySelectorAll('.modal');
+      let modals = document.querySelectorAll(".modal");
+
+
       [].forEach.call(modals, (elem) => {
         let currentZIndex = window.getComputedStyle(elem).zIndex;
-        if(currentZIndex > maxZIndex) {
-          maxZIndex = currentZIndex;
+        if (parseInt(currentZIndex) > maxZIndex) {
+          maxZIndex = parseInt(currentZIndex);
         }
       });
-      currentWindow.style.zIndex = parseInt(maxZIndex) + 1
+
+      currentWindow.style.zIndex = parseInt(maxZIndex) + 1;
     },
 
     open(event) {
-      // console.log(event)
-      this.windows.push(event)
-      console.log(event)
+      this.windows.push(event);
       this.$nextTick(() => {
-        this.lastWindowOnTop()
+        this.lastWindowOnTop();
       });
-      
     },
 
-    addWindow({opts}) {
-      this.windows.push(opts)
+    addWindow({ opts }) {
+      this.windows.push(opts);
       setTimeout(() => {
-        this.lastWindowOnTop()
-      }, 1000)
-      
-
+        this.lastWindowOnTop();
+      }, 1000);
     },
 
     lastWindowOnTop() {
-        let modals = document.querySelectorAll('.modal');
-        this.windowToTop(modals[modals.length - 1]);      
+      let modals = document.querySelectorAll(".modal");
+      this.windowToTop(modals[modals.length - 1]);
     },
 
     setWindowRef(ref) {
-      this.windowRefs.push(ref)
-    }
+      this.windowRefs.push(ref);
+    },
   },
 
-  mounted() {
-    
-  }
+  mounted() {},
 };
 </script>
 
