@@ -11,7 +11,7 @@
 			path: {
 				type: String,
 				required: false,
-				default: './home/articles/first.html'
+				default: '/home/articles/first.html'
 			}
 		},
 

@@ -65,13 +65,13 @@ export default {
         type = 'folder'
       }
 
-      let img = 'img/defaultWebApp.png'
+      let img = '/img/defaultWebApp.png'
       if(type == 'article') {
-        img = 'img/document.png'
+        img = '/img/document.png'
       } else if(type == 'application') {
-        img = 'img/defaultWebApp.png'
+        img = '/img/defaultWebApp.png'
       } else if(type == 'folder') {
-        img = 'img/folder.png'
+        img = '/img/folder.png'
       }
 
 

@@ -4,7 +4,7 @@
   <div class="desktop">
     <Folder
       @open="open"
-      :path="'home'"
+      :path="'/home'"
     />
   </div>
 
