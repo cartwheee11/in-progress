@@ -15,6 +15,7 @@
 
 <script>
 let axios = require('axios');
+// let fs = require('fs');
 import Icon from './Icon.vue'
 export default {
   components: {
@@ -49,10 +50,17 @@ export default {
   },
 
   async mounted() {
-    let folderContent = await axios(this.path);
-    // console.log(await folderContent)
 
-    await folderContent.data.forEach(elem => {
+    
+    // let folderContent = require('.' + this.path + '/dirinfo.json')
+    // let folderContent = await axios(this.path + '')
+
+    let folderContent = (await axios(this.path + '/dirinfo.json')).data.names;
+    console.log(folderContent)
+
+    console.log(folderContent)
+    console.log(folderContent);
+    await folderContent.forEach(elem => {
       let title = elem
       let extension = title.split('.')[1]
 
