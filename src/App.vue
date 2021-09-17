@@ -11,6 +11,8 @@
     :key="currentWindow"
     @mousedown="onWindowMouseDown"
     v-bind="currentWindow"
+    :defaultX="mouseX"
+    :defaultY="mouseY"
   >
     <Article
       v-if="currentWindow.type == 'article'"
@@ -97,7 +99,12 @@ export default {
     },
   },
 
-  mounted() {},
+  mounted() {
+    document.addEventListener('mousemove', event => {
+      this.mouseX = event.clientX - 50;
+      this.mouseY = event.clientY - 20;
+    })
+  },
 };
 </script>
 
