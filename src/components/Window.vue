@@ -1,6 +1,6 @@
 <template>
   <modal @ref="onRef" v-if="isOpened" :x=x :y=y :height=height :width=width >
-    <div class="container" >
+    <div class="container">
 
       <div @mousedown="onMouseDown" class="top-bar">
         <div class="title-container">
@@ -130,18 +130,17 @@ export default {
 </script>
 
 <style scoped>
-
-
-
   .top-bar {
-    border-bottom: 1px solid white;
+    border-bottom: 0.5px solid #333;
     width: 100%;
     position: absolute;
     background: black;
   }
 
   .controls {
-    float: right;
+    /* float: right; */
+    position: absolute;
+    right: 0px;
     padding: 5px 20px;
   }
 

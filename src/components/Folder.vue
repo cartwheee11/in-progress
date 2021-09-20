@@ -1,5 +1,8 @@
 <template>
-  <div class="container">
+  <div 
+    class="container"
+    :class="this.type"
+  >
     <div
       v-for="(elem, key) in content"
       :key="key"
@@ -28,6 +31,12 @@ export default {
       default: 'home',
       required: false
     },
+
+    type: {
+      type: String,
+      default: '',
+      required: false
+    }
   },
 
   data() {
@@ -91,6 +100,10 @@ export default {
     display:  grid;
     grid-template-columns:  1fr 1fr 1fr 1fr;
     grid-gap:  20px;
+  }
+
+  .container.desktop {
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 
   div {

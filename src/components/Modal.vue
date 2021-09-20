@@ -1,5 +1,5 @@
-<template @click="click">
-  <div ref="dom" @click="click" class="container modal" :style="containerStyle">
+<template >
+  <div ref="dom" @mouseup="mouseUp" @click.stop="click" class="container modal" :style="containerStyle">
     
       <slot />
 
@@ -8,11 +8,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      
-    };
-  },
+  
 
 	props: {
 		x: {
@@ -38,17 +34,42 @@ export default {
       default: window.innerWidth,
       type: Number
     },
+
+    flexible: {
+      required: false,
+      default: false,
+      type: Boolean,
+    },
 	},
+
+  data() {
+    return {
+      currentX: this.x,
+      currentY: this.y,
+      currentHeight: this.height,
+      currentWidth: this.width
+    };
+  },
 
   computed: {
     containerStyle: function () {
 			return {
-				top: this.y + 'px',
-				left: this.x + 'px',
-				height: this.height + 'px',
-				width: this.width + 'px'
+				top: this.currentY + 'px',
+				left: this.currentX + 'px',
+				height: this.currentHeight + 'px',
+				width: this.currentWidth + 'px'
 			}
 		},
+  },
+
+  watch: {
+    x: function() {
+      this.currentX = this.x;
+    },
+
+    y: function() {
+      this.currentY = this.y;
+    }
   },
 
   mounted() {
@@ -56,20 +77,45 @@ export default {
   },
 
   methods: {
-    click() {
-
+    mouseUp() { 
+      this.currentHeight = window.getComputedStyle(this.$refs.dom).height
+      this.currentWidth = window.getComputedStyle(this.$refs.dom).width
     }
   }
 };
 </script>
 
 <style scoped>
+  @keyframes show {
+    from {
+      transform: translate(0, +20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+  }
+
   .container {
     position: fixed;
-    border: 1px white solid;
+    border: 1px #333 solid;
     border-radius: 10px;
     background: black;;
     overflow:  hidden;
     z-index: 0;
+    min-width: 300px;
+    min-height: 300px;
+    resize: both;
+
+    animation-name: show;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    /* transition: 0.01s; */
+
+    /* -webkit-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
+    /* -moz-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
+    box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.15);
   }
 </style>

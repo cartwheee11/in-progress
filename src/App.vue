@@ -1,8 +1,6 @@
 <template>
-  <button ref="button" @click="clickHandler">Click me :)</button>
-
   <div class="desktop">
-    <Folder @open="open" :path="'/home'" />
+    <Folder @open="open" :type="'desktop'" :path="'/home'" />
   </div>
 
   <Window
@@ -25,6 +23,7 @@
       :path="currentWindow.path"
     />
   </Window>
+
 </template>
 
 <script>
@@ -112,6 +111,10 @@ export default {
 body {
   background: black;
   margin: 0;
+}
+
+.desktop {
+  padding: 20px
 }
 
 * {
