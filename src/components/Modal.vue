@@ -1,15 +1,11 @@
 <template >
   <div ref="dom" @mouseup="mouseUp" @click.stop="click" class="container modal" :style="containerStyle">
-    
       <slot />
-
   </div>
 </template>
 
 <script>
 export default {
-  
-
 	props: {
 		x: {
       required: false,
@@ -100,9 +96,10 @@ export default {
 
   .container {
     position: fixed;
-    border: 1px #333 solid;
+    border: 3px var(--bg-color) solid;
     border-radius: 10px;
-    background: black;;
+    /* background: #000; */
+    background: var(--window-color);
     overflow:  hidden;
     z-index: 0;
     min-width: 300px;
@@ -116,6 +113,6 @@ export default {
 
     /* -webkit-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
     /* -moz-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
-    box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.15);
+    /* box-shadow: 0px 8px 35px 12px rgba(255, 255, 255, 0.1); */
   }
 </style>

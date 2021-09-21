@@ -81,8 +81,6 @@ export default {
         img = '/img/folder.png'
       }
 
-
-
       this.content.push({ 
         title, 
         img, 
@@ -105,6 +103,7 @@ export default {
   .container.desktop {
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
+
 
   div {
     /*border:  1px solid white;*/

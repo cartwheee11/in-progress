@@ -10,7 +10,8 @@
         </div>
 
         <div class="controls" ref="controlsDOM">
-          <button>minimize</button> <button @click="closeWindow">close</button> 
+          <!-- <button>Minimize</button>  -->
+          <button @click="closeWindow">Close</button> 
         </div>
 
         <div class="clear"></div>
@@ -131,23 +132,25 @@ export default {
 
 <style scoped>
   .top-bar {
-    border-bottom: 0.5px solid #333;
+    border-bottom: 3px solid var(--bg-color);
+    /* border-radius: 4px; */
     width: 100%;
     position: absolute;
-    background: black;
+    background: var(--window-color)
+    /* background: rgb(2,0,36); */
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
   }
 
   .controls {
-    /* float: right; */
     position: absolute;
     right: 0px;
-    padding: 5px 20px;
+    padding: 0px 20px;
   }
 
   .title-container {
     display: block;
     float: left;
-    padding: 5px 20px;
+    padding: 0px 20px;
   }
 
   .title {
@@ -156,7 +159,8 @@ export default {
 
   .title p{
     padding: 0;
-    margin: 0
+    margin: 0;
+    text-transform: uppercase;
   }
   
   .container {
@@ -167,7 +171,7 @@ export default {
 
   .content-container {
     padding: 20px;
-    padding-top: 100px;
+    padding-top: 50px;
     overflow-y: scroll;
     height: 100%;
   }

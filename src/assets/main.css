@@ -1,8 +1,20 @@
+@font-face {
+    font-family: 'ibm';
+    src: url('./fonts/IBMVGA8.ttf');
+}
+
+:root {
+    --bg-color: #237;
+    --window-color: #000;
+}
+
 * {
     box-sizing: border-box;
     color: white;
-    font-family: helvetica;
+    font-family: 'ibm';
 }
+
+
 
 canvas {
     margin: 0;
@@ -14,6 +26,8 @@ body {
     padding: 0;
     /* background-color: #222; */
     overflow: hidden;
+    
+    
 }
 
 hr {
@@ -45,7 +59,6 @@ p, h1, h2, h3, h4, h5, h6 {
 
 p {
     color: white;
-    font-family: helvetica;
 }
 
 h1 {
@@ -89,6 +102,7 @@ button {
     padding: 0px 10px;
     margin-top: 5px;
     border: none;
+    text-transform: uppercase;
 }
 
 input, textarea {

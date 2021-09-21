@@ -108,9 +108,18 @@ export default {
 </script>
 
 <style>
+
+html {
+  height: 100%;
+}
+
 body {
-  background: black;
+  background: var(--bg-color);
+  /* background-image: url('./assets/back.jpeg'); */
+  background-size:cover;
+  background-repeat: no-repeat;
   margin: 0;
+  height: 100% !important;
 }
 
 .desktop {
