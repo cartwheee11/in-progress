@@ -140,7 +140,7 @@ export default {
     /* width: 100%; */
     /* position: absolute; */
     /* background: var(--window-color); */
-    box-shadow: 4px 4px 8px 10px rgba(34, 60, 80, 0.2) !important;
+    /* box-shadow: 4px 4px 8px 10px rgba(34, 60, 80, 0.2) !important; */
     background: black;
     
     /* border-radius: 20px; */
@@ -171,8 +171,8 @@ export default {
   }
 
   .controls button {
-    background: rgb(233, 76, 76);
-    color: white;
+    background: rgb(255, 255, 255);
+    /* color: white; */
     height: 26px;
     width: 26px;
   }
