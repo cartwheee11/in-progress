@@ -11,7 +11,7 @@
 
         <div class="controls" ref="controlsDOM">
           <!-- <button>Minimize</button>  -->
-          <button @click="closeWindow">Close</button> 
+          <button @click="closeWindow">x</button> 
         </div>
 
         <div class="clear"></div>
@@ -132,19 +132,49 @@ export default {
 
 <style scoped>
   .top-bar {
-    border-bottom: 3px solid var(--bg-color);
+    border: 5px solid var(--bg-color);
+    right: 5px;
+    top: 5px;
+    left: 5px;
     /* border-radius: 4px; */
-    width: 100%;
-    position: absolute;
-    background: var(--window-color)
+    /* width: 100%; */
+    /* position: absolute; */
+    /* background: var(--window-color); */
+    box-shadow: 4px 4px 8px 10px rgba(34, 60, 80, 0.2) !important;
+    background: black;
+    
+    /* border-radius: 20px; */
+
+    /* top: 5px; */
+    /* right: 5px; */
     /* background: rgb(2,0,36); */
     /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
   }
 
-  .controls {
+  /* .top-bar:after {
+    content: " ";
     position: absolute;
+    z-index: -1;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 5px solid #ffea00;
+  } */
+
+  .controls {
+    /* position: absolute; */
+    float: right;
     right: 0px;
-    padding: 0px 20px;
+    /* padding: 0px 20px; */
+    padding-right: 5px;
+  }
+
+  .controls button {
+    background: rgb(233, 76, 76);
+    color: white;
+    height: 26px;
+    width: 26px;
   }
 
   .title-container {
@@ -154,13 +184,15 @@ export default {
   }
 
   .title {
-    padding: 5px 10px
+    padding: 5px 10px;
+    text-decoration: underline;
   }
 
   .title p{
     padding: 0;
     margin: 0;
     text-transform: uppercase;
+    /* color: black; */
   }
   
   .container {

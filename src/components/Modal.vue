@@ -96,8 +96,8 @@ export default {
 
   .container {
     position: fixed;
-    border: 3px var(--bg-color) solid;
-    border-radius: 10px;
+    border: 1px #555 solid;
+    border-radius: 25px;
     /* background: #000; */
     background: var(--window-color);
     overflow:  hidden;
@@ -113,6 +113,6 @@ export default {
 
     /* -webkit-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
     /* -moz-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
-    /* box-shadow: 0px 8px 35px 12px rgba(255, 255, 255, 0.1); */
+    box-shadow: 0px 8px 35px 12px rgba(255, 255, 255, 0.15);
   }
 </style>
