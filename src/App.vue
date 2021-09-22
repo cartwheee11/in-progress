@@ -7,7 +7,7 @@
     :ref="setWindowRef"
     v-for="currentWindow in windows"
     :key="currentWindow"
-    @mousedown="onWindowMouseDown"
+    @pointerdown="onWindowMouseDown"
     v-bind="currentWindow"
     :defaultX="mouseX"
     :defaultY="mouseY"

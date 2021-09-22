@@ -2,7 +2,7 @@
   <modal @ref="onRef" v-if="isOpened" :x=x :y=y :height=height :width=width >
     <div class="container">
 
-      <div @mousedown="onMouseDown" class="top-bar">
+      <div @pointerdown="onMouseDown" class="top-bar">
         <div class="title-container">
           <div class="title">
             <p>{{title}}</p>
@@ -94,7 +94,7 @@ export default {
       }
     })
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
       this.isMouseDown = false
     })
   },
