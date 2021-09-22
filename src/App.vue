@@ -72,7 +72,6 @@ export default {
 
       let modals = document.querySelectorAll(".modal");
 
-
       [].forEach.call(modals, (elem) => {
         let currentZIndex = window.getComputedStyle(elem).zIndex;
         if (parseInt(currentZIndex) > maxZIndex) {
@@ -89,13 +88,6 @@ export default {
         this.lastWindowOnTop();
       });
     },
-
-    // addWindow({ opts }) {
-    //   this.windows.push(opts);
-    //   setTimeout(() => {
-    //     this.lastWindowOnTop();
-    //   }, 1000);
-    // },
 
     lastWindowOnTop() {
       let modals = document.querySelectorAll(".modal");

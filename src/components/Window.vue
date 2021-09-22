@@ -10,8 +10,8 @@
         </div>
 
         <div class="controls" ref="controlsDOM">
-          <!-- <button>Minimize</button>  -->
-          <button @click="closeWindow">Close</button> 
+          <!-- <button>_ Minimize</button>  -->
+          <button @click="closeWindow">X Close</button> 
         </div>
 
         <div class="clear"></div>
@@ -121,7 +121,6 @@ export default {
   watch: {
     isMounted() {
       this.titleStyles = {
-        
         width: (this.width - parseInt(getComputedStyle(this.$refs.controlsDOM).width) - 10) + 'px'
       }
     }
@@ -147,9 +146,13 @@ export default {
   }
 
   .controls button {
-    background: rgb(255, 255, 255);
-    /* color: white; */
+    background: rgb(255, 59, 59);
+    color: white;
     height: 26px;
+    margin-top: -1px;
+    z-index: 10;
+    border-radius: 0px;
+
     margin-bottom: 5px;
     /* width: 26px; */
   }
@@ -175,14 +178,8 @@ export default {
   
   .container {
     height: 100%;
-    /* background: red; */
-    /* width: 100%; */
-    /* display:  grid; */
-    /* grid-template-columns: 1fr; */
-    /* grid-template-rows: auto 1fr; */
     display: flex;
     flex-direction: column;
-    /* white-space: nowrap; */
   }
 
   .content-container {
