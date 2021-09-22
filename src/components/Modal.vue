@@ -113,6 +113,6 @@ export default {
 
     /* -webkit-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
     /* -moz-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
-    box-shadow: 0px 8px 35px 12px rgba(255, 255, 255, 0.15);
+    /* box-shadow: 0px 8px 35px 12px rgba(255, 255, 255, 0.15); */
   }
 </style>
