@@ -111,7 +111,7 @@ export default {
     animation-duration: 0.2s;
     animation-iteration-count: 1;
     /* padding-bottom: 20px; */
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     
     /* transition: 0.01s; */
     /* -webkit-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
