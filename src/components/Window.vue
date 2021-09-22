@@ -135,37 +135,8 @@ export default {
     right: 5px;
     top: 5px;
     left: 5px;
-    /* border-bottom: 3px #fff solid; */
     background: var(--window-top-bar-color);
-    /* display: block; */
-    /* border-radius: 4px; */
-    /* width: 100%; */
-    /* position: absolute; */
-    /* background: var(--window-color); */
-    /* box-shadow: 4px 4px 8px 10px rgb(255, 7, 7) !important; */
-    /* background: black; */
-    /* background: rgb(0,0,0); */
-    /* background: white; */
-    /* background: linear-gradient(180deg, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); */
-    
-    /* border-radius: 20px; */
-
-    /* top: 5px; */
-    /* right: 5px; */
-    /* background: rgb(2,0,36); */
-    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
   }
-
-  /* .top-bar:after {
-    content: " ";
-    position: absolute;
-    z-index: -1;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    border: 5px solid #ffea00;
-  } */
 
   .controls {
     /* position: absolute; */
