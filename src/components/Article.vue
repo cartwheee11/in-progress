@@ -38,10 +38,7 @@
 <style scoped>
 	.content {
 		display: block;
-		height: 100%;
-		/* padding-bottom:  20px; */
 		padding: 20px;
-		margin-bottom: 40px;
 	}
 
 	

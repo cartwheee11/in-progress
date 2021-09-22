@@ -76,6 +76,8 @@ export default {
         type = 'application'
       } else if(extension == undefined) {
         type = 'folder'
+      } else if(extension == 'jpg' || extension == 'png' || extension == 'jpeg') {
+        type = 'image'
       }
 
       let img = '/img/defaultWebApp.png'

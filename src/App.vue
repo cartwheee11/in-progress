@@ -22,6 +22,13 @@
       v-if="currentWindow.type == 'folder'"
       :path="currentWindow.path"
     />
+
+    <ImageElement
+      v-if="currentWindow.type == 'image'"
+      :path="currentWindow.path"
+    />
+    
+    
   </Window>
 
 </template>
@@ -31,6 +38,7 @@ import Article from "./components/Article.vue";
 import Window from "./components/Window.vue";
 // import Modal from './components/Modal.vue';
 import Folder from "./components/Folder.vue";
+import ImageElement from './components/ImageElement.vue'
 
 export default {
   name: "App",
@@ -39,6 +47,7 @@ export default {
     Window,
     Article,
     Folder,
+    ImageElement
   },
 
   data() {
@@ -81,12 +90,12 @@ export default {
       });
     },
 
-    addWindow({ opts }) {
-      this.windows.push(opts);
-      setTimeout(() => {
-        this.lastWindowOnTop();
-      }, 1000);
-    },
+    // addWindow({ opts }) {
+    //   this.windows.push(opts);
+    //   setTimeout(() => {
+    //     this.lastWindowOnTop();
+    //   }, 1000);
+    // },
 
     lastWindowOnTop() {
       let modals = document.querySelectorAll(".modal");

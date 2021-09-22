@@ -105,6 +105,8 @@ export default {
     min-height: 300px;
     resize: both;
 
+    height: 100%;
+
     animation-name: show;
     animation-duration: 0.2s;
     animation-iteration-count: 1;

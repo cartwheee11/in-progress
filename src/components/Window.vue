@@ -22,8 +22,7 @@
           <slot/>
         </div>
       </div>
-
-      <div class="bottom-bar"></div>
+      <!-- <div class="bottom-bar"></div> -->
     </div>
   </modal>
 </template>
@@ -205,21 +204,26 @@ export default {
   
   .container {
     height: 100%;
-    width: 100%;
-    display:  block;
+    /* background: red; */
+    /* width: 100%; */
+    /* display:  grid; */
+    /* grid-template-columns: 1fr; */
+    /* grid-template-rows: auto 1fr; */
+    display: flex;
+    flex-direction: column;
+    /* white-space: nowrap; */
   }
 
   .content-container {
-    /* padding: 20px; */
-    /* padding-bottom: 40px; */
-    /* padding-top: 50px; */
     overflow-y: scroll;
-    height: 100%;
     z-index: 0;
+    height: 100%;
   }
 
   .content {
-    /*padding-bottom:  20px;*/
+    /* padding-bottom:  20px; */
+    /* width: 100%; */
+    height: 100%;
   }
     
 
