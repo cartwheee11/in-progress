@@ -96,8 +96,8 @@ export default {
 
   .container {
     position: fixed;
-    border: 1px #555 solid;
-    border-radius: 25px;
+    border: 3px #fff solid;
+    border-radius: 22px;
     /* background: #000; */
     background: var(--window-color);
     overflow:  hidden;

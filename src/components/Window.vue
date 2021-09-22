@@ -11,7 +11,7 @@
 
         <div class="controls" ref="controlsDOM">
           <!-- <button>Minimize</button>  -->
-          <button @click="closeWindow">x</button> 
+          <button @click="closeWindow">Close</button> 
         </div>
 
         <div class="clear"></div>
@@ -132,16 +132,21 @@ export default {
 
 <style scoped>
   .top-bar {
-    border: 5px solid var(--bg-color);
+    /* border: 5px solid var(--bg-color); */
     right: 5px;
     top: 5px;
     left: 5px;
+    border-bottom: 3px #fff solid;
+    /* display: block; */
     /* border-radius: 4px; */
     /* width: 100%; */
     /* position: absolute; */
     /* background: var(--window-color); */
-    /* box-shadow: 4px 4px 8px 10px rgba(34, 60, 80, 0.2) !important; */
-    background: black;
+    /* box-shadow: 4px 4px 8px 10px rgb(255, 7, 7) !important; */
+    /* background: black; */
+    /* background: rgb(0,0,0); */
+    /* background: white; */
+    /* background: linear-gradient(180deg, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); */
     
     /* border-radius: 20px; */
 
@@ -174,13 +179,13 @@ export default {
     background: rgb(255, 255, 255);
     /* color: white; */
     height: 26px;
-    width: 26px;
+    /* width: 26px; */
   }
 
   .title-container {
     display: block;
     float: left;
-    padding: 0px 20px;
+    padding: 0px 0px;
   }
 
   .title {
@@ -203,9 +208,11 @@ export default {
 
   .content-container {
     padding: 20px;
+    padding-bottom: 40px;
     padding-top: 50px;
     overflow-y: scroll;
     height: 100%;
+    z-index: 0;
   }
 
   .content {
