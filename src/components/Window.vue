@@ -87,7 +87,7 @@ export default {
   },
 
   mounted() {
-    document.addEventListener('mousemove', event => {
+    document.addEventListener('pointermove', event => {
       if(this.isMouseDown) {
         this.x = event.clientX - this.whereClickWas.x;
         this.y = event.clientY - this.whereClickWas.y; 

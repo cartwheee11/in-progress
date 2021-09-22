@@ -108,7 +108,7 @@ export default {
   },
 
   mounted() {
-    document.addEventListener('mousemove', event => {
+    document.addEventListener('pointermove', event => {
       this.mouseX = event.clientX - 50;
       this.mouseY = event.clientY - 20;
     })
