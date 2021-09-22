@@ -136,7 +136,8 @@ export default {
     right: 5px;
     top: 5px;
     left: 5px;
-    border-bottom: 3px #fff solid;
+    /* border-bottom: 3px #fff solid; */
+    background: var(--window-top-bar-color);
     /* display: block; */
     /* border-radius: 4px; */
     /* width: 100%; */
@@ -179,6 +180,7 @@ export default {
     background: rgb(255, 255, 255);
     /* color: white; */
     height: 26px;
+    margin-bottom: 5px;
     /* width: 26px; */
   }
 
@@ -190,6 +192,7 @@ export default {
 
   .title {
     padding: 5px 10px;
+    color: black;
     text-decoration: underline;
   }
 
@@ -197,7 +200,7 @@ export default {
     padding: 0;
     margin: 0;
     text-transform: uppercase;
-    /* color: black; */
+    color: black;
   }
   
   .container {
@@ -207,9 +210,9 @@ export default {
   }
 
   .content-container {
-    padding: 20px;
-    padding-bottom: 40px;
-    padding-top: 50px;
+    /* padding: 20px; */
+    /* padding-bottom: 40px; */
+    /* padding-top: 50px; */
     overflow-y: scroll;
     height: 100%;
     z-index: 0;

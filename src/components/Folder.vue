@@ -1,4 +1,10 @@
 <template>
+
+  <div v-if="type != 'desktop'" class="info-section">
+    <span class="path">{{path.replaceAll('/', ' > ')}}</span>
+    <span class="elements-count">{{content.length}} elements</span>
+  </div>
+
   <div 
     class="container"
     :class="this.type"
@@ -98,13 +104,30 @@ export default {
     display:  grid;
     grid-template-columns:  1fr 1fr 1fr 1fr;
     grid-gap:  20px;
+    padding: 20px;
   }
 
   .container.desktop {
     grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
 
+  .info-section {
+    /* position: absolute; */
+    border-bottom: #444 solid 1px;
+    padding: 10px 10px;
+    /* display: block; */
+    display: grid;
+    background: #151515;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .path {
+    margin: 0;
+    text-align: left;
+    /* display: block; */
+  }
 
+ 
   div {
     /*border:  1px solid white;*/
     text-align: center;

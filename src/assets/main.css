@@ -6,6 +6,8 @@
 :root {
     --bg-color: black;
     --window-color: #000;
+    --modal-border-color: #ddd;
+    --window-top-bar-color: #ddd;
 }
 
 * {

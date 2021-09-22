@@ -96,9 +96,8 @@ export default {
 
   .container {
     position: fixed;
-    border: 3px #fff solid;
+    border: 1px var(--modal-border-color) solid;
     border-radius: 22px;
-    /* background: #000; */
     background: var(--window-color);
     overflow:  hidden;
     z-index: 0;
@@ -109,8 +108,8 @@ export default {
     animation-name: show;
     animation-duration: 0.2s;
     animation-iteration-count: 1;
+    
     /* transition: 0.01s; */
-
     /* -webkit-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
     /* -moz-box-shadow: 0px 8px 35px 12px rgba(223, 223, 223, 0.32); */
     /* box-shadow: 0px 8px 35px 12px rgba(255, 255, 255, 0.15); */
