@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<div class="icon-container">
 		<div class="icon">
-			<img :src="img" alt="">
+			<img :src="img" alt="" :class="type + '-icon'" >
 		</div>
 		<p class="p">{{title}}</p>
 	</div>
@@ -19,15 +19,25 @@
 				reqired: true
 			},
 
+			type: {
+				type: String,
+				required: false
+			},
+
 			img: {
 				type: String,
 				required: true,
 			}
 		},
 
-		mounted() {
-
-		}
+		data() {
+			return {
+				imageIconStyles: {
+					border: '5px white solid',
+					// borderTopRightRadius: '10px'
+				}
+			}
+		},
 	}
 </script>
 
@@ -37,12 +47,50 @@
 	}
 
 	.icon {
-
+		padding-top: 10px;
 	}
+
+	.icon-container {
+		transition: transform 0.1s;
+	}
+
+	.icon-container:hover{
+		/* box-shadow: 3px 3px 6px 1px rgba(255, 255, 255, 0.7); */
+		/* border-radius: 10px; */
+		/* filter: drop-shadow(0px 0px 3px white); */
+		transform: translate(0, -5px);
+		transition: transform 0.1s;
+	}
+
+	/* .icon:hover {
+		background: white
+	} */
 	
 /*	.container {
 		height: 100px;
 	}*/
+
+	.image-icon {
+		border: 3px solid white;
+		/* display: block; */
+	}
+
+	.image-icon:before,
+	.image-icon:after {
+		content: ' ';
+		top: 0;
+		width: 2px;
+		height: 100%;
+		position: absolute;
+		background: white;
+		
+	}
+	.image-icon:before {
+		left: -2px;
+	}
+	.image-icon:after {
+		right: -2px;
+	}
 
 	.p {
 		display: inline-block;
@@ -80,12 +128,14 @@
 	}
 
 	img {
-		image-rendering: optimizeSpeed;             /*                     */
-    image-rendering: -moz-crisp-edges;          /* Firefox             */
-    image-rendering: -o-crisp-edges;            /* Opera               */
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and Safari) */
-    image-rendering: pixelated;                 /* Chrome as of 2019   */
-    image-rendering: optimize-contrast;         /* CSS3 Proposed       */
-    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                */
+		image-rendering: optimizeSpeed;                                
+    image-rendering: -moz-crisp-edges;        
+    image-rendering: -o-crisp-edges;            
+    image-rendering: -webkit-optimize-contrast; 
+    image-rendering: pixelated;                 
+    image-rendering: optimize-contrast;         
+    -ms-interpolation-mode: nearest-neighbor;   
+		max-width: 80px;
+		max-height: 80px;
 	}
 </style>

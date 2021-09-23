@@ -16,6 +16,7 @@
       <Icon @dblclick="iconClick(elem.title, key)"
         :img="elem.img"
         :title="elem.title"
+        :type="elem.type"
       />
     </div>  
   </div>
@@ -80,6 +81,8 @@ export default {
         type = 'image'
       }
 
+      
+
       let img = '/img/defaultWebApp.png'
       if(type == 'article') {
         img = '/img/document.png'
@@ -87,7 +90,13 @@ export default {
         img = '/img/defaultWebApp.png'
       } else if(type == 'folder') {
         img = '/img/folder.png'
+      } else if(type == 'image') {
+        img = this.path + '/' + title;
       }
+
+      console.log(img)
+        
+      
 
       this.content.push({ 
         title, 
@@ -120,6 +129,7 @@ export default {
     /* display: block; */
     display: grid;
     background: #151515;
+    /* background: #303050; */
     grid-template-columns: 1fr 1fr 1fr;
   }
   
@@ -131,7 +141,6 @@ export default {
 
  
   div {
-    /*border:  1px solid white;*/
     text-align: center;
   }
 </style>

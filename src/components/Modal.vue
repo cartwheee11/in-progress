@@ -94,12 +94,23 @@ export default {
     }
   }
 
+  ::-webkit-resizer {
+    /* background: red; */
+    /* display: block !important; */
+    border-top: 1px solid white !important;
+    border-left: 1px solid white !important;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+  }
+
   .container {
     position: fixed;
-    border: 1px var(--modal-border-color) solid;
+    /* border: 1px var(--modal-border-color) solid; */
+    /* box-shadow: 0 0 0px 1px var(--modal-border-color); */
     border-radius: 3px;
     background: var(--window-color);
-    /* overflow:  hidden; */
+    overflow: hidden;
     z-index: 0;
     min-width: 300px;
     min-height: 300px;

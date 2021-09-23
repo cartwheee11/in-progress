@@ -1,6 +1,6 @@
 <template>
   <modal @ref="onRef" v-if="isOpened" :x=x :y=y :height=height :width=width >
-    <div class="container">
+    <div class="container window-container">
 
       <div @pointerdown="onMouseDown" class="top-bar">
         <div class="title-container">
@@ -138,8 +138,10 @@ export default {
   }
 
   .controls {
-    /* position: absolute; */
-    float: right;
+    position: absolute;
+    /* float: right; */
+    right: 5px;
+    top: -3px;
     right: 0px;
     /* padding: 0px 20px; */
     padding-right: 5px;
@@ -149,13 +151,22 @@ export default {
     background: rgb(255, 59, 59);
     color: white;
     height: 26px;
-    margin-top: -1px;
+    margin-top: 0px;
     z-index: 10;
     border-radius: 0px;
-
+    /* position: absolute; */
     margin-bottom: 5px;
     /* width: 26px; */
   }
+
+  .controls button:hover{
+    background: rgb(214, 53, 53);
+  }
+
+  .controls button:active{
+    background: rgb(176, 51, 51);
+  }
+
 
   .title-container {
     display: block;
@@ -175,12 +186,22 @@ export default {
     text-transform: uppercase;
     color: black;
   }
+
+  .window-container {
+    border: solid white 1px;
+  }
   
   .container {
     height: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
   }
+
+  
+
+  /* .modal {
+    border: solid white 1px;
+  } */
 
   .content-container {
     overflow-y: scroll;
