@@ -1,7 +1,7 @@
 <template>
 	<div class="icon-container">
-		<div class="icon">
-			<img :src="img" alt="" :class="type + '-icon'" >
+		<div class="icon" :style="'background-image: url(' + img + ')'" :class="type + '-icon'">
+			<!-- <img :src="img" alt="" :class="type + '-icon'" > -->
 		</div>
 		<p class="p">{{title}}</p>
 	</div>
@@ -33,8 +33,8 @@
 		data() {
 			return {
 				imageIconStyles: {
-					border: '5px white solid',
-					// borderTopRightRadius: '10px'
+					// border: '5px white solid',
+					'background-size': '100px'
 				}
 			}
 		},
@@ -44,14 +44,39 @@
 <style scoped>
 	* {
 		color:  white;
-	}
+		/* width: 100px; */
+	
 
-	.icon {
-		padding-top: 10px;
 	}
 
 	.icon-container {
 		transition: transform 0.1s;
+		/* width: 100%; */
+		/* height: 100%; */
+		padding-top: 10px;
+
+	}
+
+	.icon {
+		/* width: 100%; */
+		width: 80px;
+		height: 70px;
+		margin: 0 auto;
+		/* margin: 0 !important; */
+		/* height: 100%; */
+		/* background-size: contain; */
+		background-position: center;
+		background-repeat: no-repeat;
+
+		image-rendering: optimizeSpeed;                                
+    image-rendering: -moz-crisp-edges;        
+    image-rendering: -o-crisp-edges;            
+    image-rendering: -webkit-optimize-contrast; 
+    image-rendering: pixelated;                 
+    image-rendering: optimize-contrast;         
+    -ms-interpolation-mode: nearest-neighbor;   
+		/* max-width: 80px; */
+		/* max-height: 80px; */
 	}
 
 	.icon-container:hover{
@@ -72,10 +97,16 @@
 
 	.image-icon {
 		border: 3px solid white;
+		background-size: cover;
+		height: 100px;
 		/* display: block; */
+		/* width: 100%; */
+		/* height: 100%; */
+		/* width: 100px; */
+		/* height: 100px; */
 	}
 
-	.image-icon:before,
+	/* .image-icon:before,
 	.image-icon:after {
 		content: ' ';
 		top: 0;
@@ -84,7 +115,7 @@
 		position: absolute;
 		background: white;
 		
-	}
+	} */
 	.image-icon:before {
 		left: -2px;
 	}
